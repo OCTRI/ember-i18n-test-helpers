@@ -11,11 +11,18 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thriqon/ember-i18n-test-helpers.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": {
+    "name": "Jonas Weber",
+    "email": "mail@jonasw.de",
+    "url": "https://jonasw.de"
+  },
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
@@ -44,14 +51,5 @@
   "ember-addon": {
     "configPath": "tests/dummy/config"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/thriqon/ember-i18n-test-helpers.git"
-  },
-  "homepage": "https://github.com/thriqon/ember-i18n-test-helpers",
-  "author": {
-    "name": "Jonas Weber",
-    "email": "mail@jonasw.de",
-    "url": "https://jonasw.de"
-  }
+  "homepage": "https://github.com/thriqon/ember-i18n-test-helpers"
 }
