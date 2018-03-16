@@ -18,6 +18,8 @@ define("ember-i18n-test-helpers", ["ember", "ember-test-helpers", "exports"], fu
 
 		var translations = {};
 		var defaultValue = null;
+		var register = context.owner ? context.owner.register.bind(context.owner) :
+			context.registry.register.bind(context.registry);
 
 		var t = function tHelper(key, params) {
 			var entry = translations[key] || defaultValue;
@@ -26,10 +28,10 @@ define("ember-i18n-test-helpers", ["ember", "ember-test-helpers", "exports"], fu
 			return entry(params);
 		};
 
-		context.registry.register('service:i18n', {t: t}, DO_NOT_INSTANTIATE);
+		register('service:i18n', {t: t}, DO_NOT_INSTANTIATE);
 
 		if (Ember.Helper && Ember.Helper.helper) {
-			context.registry.register('helper:t', Ember.Helper.helper(t), DO_NOT_INSTANTIATE);
+			register('helper:t', Ember.Helper.helper(t), DO_NOT_INSTANTIATE);
 		} else {
 			Ember.HTMLBars._registerHelper('t', t);
 		}
@@ -61,7 +63,7 @@ define("ember-i18n-test-helpers", ["ember", "ember-test-helpers", "exports"], fu
 				defaultValue = hoistedToFunction(result);
 				return this;
 			},
-			
+
 			withoutDefault: function () {
 				defaultValue = null;
 				return this;
